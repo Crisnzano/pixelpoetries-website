@@ -1,24 +1,35 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Button } from '@mui/material';
+import { Theme } from './components/ThemeProvider';
+import Centered from './components/Center';
+import MyForm from './components/Form';
+import PrimarySearchAppBar from './components/AppBar';
+import ExampleNavigationMenu from './components/HorizontalMenu';
+
+
+/*
+   <Theme>
+          <Button 
+          variant="contained"
+          sx={{marginTop: 4, marginLeft: 4,
+          }}
+          > 
+          Hello World</Button>
+        </Theme>
+*/
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Theme>
+      <Centered>
+        <PrimarySearchAppBar/>
+      </Centered>
+      </Theme>
+      <ExampleNavigationMenu/>
+   
     </div>
   );
 }
