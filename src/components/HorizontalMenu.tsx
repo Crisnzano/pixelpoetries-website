@@ -16,17 +16,9 @@ import Person from '@mui/icons-material/Person';
 import Apps from '@mui/icons-material/Apps';
 import FactCheck from '@mui/icons-material/FactCheck';
 import BookmarkAdd from '@mui/icons-material/BookmarkAdd';
+import { ForkLeft, ShoppingCart } from '@mui/icons-material';
+import Centered from './Center';
 
-type Options = {
-  initialActiveIndex: null | number;
-  vertical: boolean;
-  handlers?: {
-    onKeyDown: (
-      event: React.KeyboardEvent<HTMLAnchorElement>,
-      fns: { setActiveIndex: React.Dispatch<React.SetStateAction<number | null>> },
-    ) => void;
-  };
-};
 
 const useRovingIndex = (options?: Options) => {
   const {
@@ -87,13 +79,6 @@ const useRovingIndex = (options?: Options) => {
     focusNext,
     focusPrevious,
   };
-};
-
-type AboutMenuProps = {
-  focusNext: () => void;
-  focusPrevious: () => void;
-  onMouseEnter?: (event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLAnchorElement>) => void;
 };
 
 const AboutMenu = React.forwardRef(
@@ -157,7 +142,7 @@ const AboutMenu = React.forwardRef(
               ...(open && theme.variants.plainHover.neutral),
             })}
           >
-            About <KeyboardArrowDown />
+            Work <KeyboardArrowDown />
           </ListItemButton>
           <Popper id={id} open={open} anchorEl={anchorEl} disablePortal keepMounted>
             <List
@@ -187,7 +172,7 @@ const AboutMenu = React.forwardRef(
                   <ListItemDecorator>
                     <Person />
                   </ListItemDecorator>
-                  Administration
+                  Portfolio
                 </ListItemButton>
               </ListItem>
               <ListItem role="none">
@@ -206,12 +191,6 @@ const AboutMenu = React.forwardRef(
   },
 );
 
-type AdmissionsMenuProps = {
-  focusNext: () => void;
-  focusPrevious: () => void;
-  onMouseEnter?: (event?: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
-  onKeyDown?: (event: React.KeyboardEvent<HTMLAnchorElement>) => void;
-};
 
 const AdmissionsMenu = React.forwardRef(
   (
@@ -274,7 +253,7 @@ const AdmissionsMenu = React.forwardRef(
               ...(open && theme.variants.plainHover.neutral),
             })}
           >
-            Admissions <KeyboardArrowDown />
+            Blog <KeyboardArrowDown />
           </ListItemButton>
           <Popper id={id} open={open} anchorEl={anchorEl} disablePortal keepMounted>
             <List
@@ -285,7 +264,7 @@ const AdmissionsMenu = React.forwardRef(
                 my: 2,
                 boxShadow: 'md',
                 borderRadius: 'sm',
-                minWidth: 180,
+                minWidth: 200,
                 '--List-radius': '8px',
                 '--List-padding': '4px',
                 '--ListDivider-gap': '4px',
@@ -293,7 +272,7 @@ const AdmissionsMenu = React.forwardRef(
             >
               <ListItem role="none">
                 <ListItemButton role="menuitem" {...getTargetProps(0)}>
-                  <ListItemContent>Apply</ListItemContent>
+                  <ListItemContent>Add Your Blog</ListItemContent>
                   <Chip size="sm" variant="soft" color="danger">
                     Last 2 days!
                   </Chip>
@@ -314,7 +293,7 @@ const AdmissionsMenu = React.forwardRef(
                 }
               >
                 <ListItemButton role="menuitem" {...getTargetProps(2)}>
-                  Photo tour
+                  Tour our Site
                 </ListItemButton>
               </ListItem>
             </List>
@@ -329,53 +308,85 @@ export default function ExampleNavigationMenu() {
   const { targets, getTargetProps, setActiveIndex, focusNext, focusPrevious } =
     useRovingIndex();
   return (
-    <Box sx={{ minHeight: 190 }}>
-      <List
-        role="menubar"
-        orientation="horizontal"
-        sx={{
-          '--List-radius': '8px',
-          '--List-padding': '4px',
-          '--List-gap': '8px',
-          '--ListItem-gap': '0px',
-        }}
-      >
-        <ListItem role="none">
-          <ListItemButton
-            role="menuitem"
-            {...getTargetProps(0)}
-            component="a"
-            href="#navigation-menu"
-          >
-            <ListItemDecorator>
-              <HomeRounded />
-            </ListItemDecorator>
-            Home
-          </ListItemButton>
-        </ListItem>
-        <ListItem role="none">
-          <AboutMenu
-            onMouseEnter={() => {
-              setActiveIndex(1);
-              targets[1].focus();
+    
+
+    
+    <Box 
+        sx={{ minHeight: 220,
+            maxWidth: 1100,
+            marginLeft: 50,
+            
+            }}>
+        
+        <List
+            
+            role="menubar"
+            orientation="horizontal"
+            sx={{
+            
+            '--List-radius': '10px',
+            '--List-padding': '4px',
+            '--List-gap': '8px',
+            '--ListItem-gap': '0px',
             }}
-            focusNext={focusNext}
-            focusPrevious={focusPrevious}
-            {...getTargetProps(1)}
-          />
-        </ListItem>
-        <ListItem role="none">
-          <AdmissionsMenu
-            onMouseEnter={() => {
-              setActiveIndex(2);
-              targets[2].focus();
-            }}
-            focusNext={focusNext}
-            focusPrevious={focusPrevious}
-            {...getTargetProps(2)}
-          />
-        </ListItem>
-      </List>
+        >
+            <ListItem role="none">
+                
+            <ListItemButton
+                role="menuitem"
+                {...getTargetProps(0)}
+                component="a"
+                href="#navigation-menu"
+            >
+                <ListItemDecorator>
+                <HomeRounded />
+                </ListItemDecorator>
+                Home
+            </ListItemButton>
+            </ListItem>
+            <ListItem role="none">
+            <ListItemButton
+                role="menuitem"
+                {...getTargetProps(0)}
+                component="a"
+                href="#navigation-menu"
+            >
+                <ListItemDecorator>
+                <Person />
+                </ListItemDecorator>
+                Portfolio
+            </ListItemButton>
+            </ListItem>
+            <ListItem role="none">
+            <AboutMenu
+                onMouseEnter={() => {
+                setActiveIndex(1);
+                targets[1].focus();
+                }}
+                focusNext={focusNext}
+                focusPrevious={focusPrevious}
+                {...getTargetProps(1)}
+            />
+            </ListItem>
+            <ListItem role="none">
+            <AdmissionsMenu
+                onMouseEnter={() => {
+                setActiveIndex(2);
+                targets[2].focus();
+                }}
+                focusNext={focusNext}
+                focusPrevious={focusPrevious}
+                {...getTargetProps(2)}
+            />
+            </ListItem>
+            <ShoppingCart 
+            sx={{
+                alignItems:"right",
+                marginLeft: 15
+            }}/>
+        </List>
+        
     </Box>
+    
   );
 }

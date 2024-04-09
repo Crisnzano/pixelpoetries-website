@@ -7,6 +7,10 @@ import Centered from './components/Center';
 import MyForm from './components/Form';
 import PrimarySearchAppBar from './components/AppBar';
 import ExampleNavigationMenu from './components/HorizontalMenu';
+import CustomImageList from './components/Gallery';
+import BlogReviewCard from './components/Blog';
+import Footer from './components/Footer';
+import Logo from './components/Logo';
 
 
 /*
@@ -24,11 +28,18 @@ function App() {
   return (
     <div className="App">
       <Theme>
+      <Logo image={{
+        alt: 'logo'
+      }}/>
       <Centered>
         <PrimarySearchAppBar/>
       </Centered>
       </Theme>
       <ExampleNavigationMenu/>
+      <CustomImageList/>
+      <BlogReviewCard/>
+      <Footer/>
+  
    
     </div>
   );
