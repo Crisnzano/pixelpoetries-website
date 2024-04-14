@@ -21,7 +21,7 @@ export default function Footer () {
         <InstagramIcon>Instagram</InstagramIcon>
         <XIcon>Twitter</XIcon>
         <LinkedInIcon>Linkedin</LinkedInIcon>
-        <p>©2023 by Pixel Poetries</p>
+        <p>©2024 by Pixel Poetries</p>
 
     </Box>
     );
