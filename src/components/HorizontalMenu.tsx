@@ -19,7 +19,7 @@ import BookmarkAdd from '@mui/icons-material/BookmarkAdd';
 import { ForkLeft, ShoppingCart } from '@mui/icons-material';
 import Centered from './Center';
 
-
+// Landing Pge For website
 const useRovingIndex = (options?: Options) => {
   const {
     initialActiveIndex = 0,
